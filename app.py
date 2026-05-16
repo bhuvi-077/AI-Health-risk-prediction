@@ -5,7 +5,7 @@ import base64
 
 
 def set_bg():
-    with open("bg.jpg", "rb") as file:
+    with open("bg1.jpg", "rb") as file:
         encoded = base64.b64encode(file.read()).decode()
     page_bg = f"""
     <style>
