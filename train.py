@@ -29,7 +29,8 @@ plt.show()
 
 #separate features and target variable
 
-x = df.drop("target", axis = 1)
+#x = df.drop("target", axis = 1)
+x = df[["age", "trestbps", "chol"]]
 y = df["target"]
 
 #train test split
