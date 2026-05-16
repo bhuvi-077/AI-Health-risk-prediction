@@ -2,8 +2,8 @@ import streamlit as st
 import joblib
 import numpy as np
 
-model = joblib.load("health_model.pkl")
-scaler = joblib.load("scaler.pkl")
+model = joblib.load("models/health_model.pkl")
+scaler = joblib.load("models/scaler.pkl")
 st.title("AI Health Risk Prediction")
 
 #age = st.number_input("Age", min_value = 0, max_value = 120, value = 30)

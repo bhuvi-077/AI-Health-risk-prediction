@@ -66,9 +66,9 @@ print("Random Forest Accuracy:", accuracy_score(y_test,rf_pred))
 print(confusion_matrix(y_test, rf_pred))
 print(classification_report(y_test,rf_pred))
 
-joblib.dump(rf, "health_model.pkl")
-joblib.dump(scaler, "scaler.pkl")
+joblib.dump(rf, "models/health_model.pkl")
+joblib.dump(scaler, "models/scaler.pkl")
 
-model = joblib.load("health_model.pkl")
+model = joblib.load("models/health_model.pkl")
 prediction = model.predict([[52,1,140,250,1,1,160,0,2.3,1,0,2,3]])
 print(prediction)
