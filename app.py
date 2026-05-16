@@ -17,39 +17,44 @@ def set_bg():
     """
     st.markdown(page_bg, unsafe_allow_html = True)
 set_bg()
+
+
 model = joblib.load("models/health_model.pkl")
 scaler = joblib.load("models/scaler.pkl")
-st.title("AI Health Risk Prediction")
+st.markdown(
+    "<h1 style = 'color:Black;'>AI Health Risk Prediction</h1>",unsafe_allow_html=True
+)
+#st.title("AI Health Risk Prediction")
 
 #age = st.number_input("Age", min_value = 0, max_value = 120, value = 30)
 #bp = st.number_input("Blood Pressure", min_value = 0, max_value = 200, value = 120)
 #chol = st.number_input("cholestrol", min_value = 0, max_value = 500, value = 200)
+#st.sidebar.title("patient Details")
+col1,col2 = st.columns(2)
+with col1:
+    age = st.number_input("Age")
+    sex = st.selectbox("Sex", [0,1])
+    cp = st.number_input("Chest Pain Type")
 
-age = st.number_input("Age")
+    trestbps = st.number_input("Resting Blood Pressure")
 
-sex = st.selectbox("Sex", [0,1])
+    chol = st.number_input("Cholesterol")
 
-cp = st.number_input("Chest Pain Type")
+    fbs = st.selectbox("Fasting Blood Sugar", [0,1])
 
-trestbps = st.number_input("Resting Blood Pressure")
+    restecg = st.number_input("Rest ECG")
+with col2:
+    thalach = st.number_input("Max Heart Rate")
 
-chol = st.number_input("Cholesterol")
+    exang = st.selectbox("Exercise Angina", [0,1])
 
-fbs = st.selectbox("Fasting Blood Sugar", [0,1])
+    oldpeak = st.number_input("Oldpeak")
 
-restecg = st.number_input("Rest ECG")
+    slope = st.number_input("Slope")
 
-thalach = st.number_input("Max Heart Rate")
+    ca = st.number_input("CA")
 
-exang = st.selectbox("Exercise Angina", [0,1])
-
-oldpeak = st.number_input("Oldpeak")
-
-slope = st.number_input("Slope")
-
-ca = st.number_input("CA")
-
-thal = st.number_input("Thal")
+    thal = st.number_input("Thal")
 data = [[
     age,
     sex,
@@ -67,8 +72,10 @@ data = [[
 ]]
 if st.button("predict"):
     #data = model.transform(data)
+    #st.balloons()
     prediction = model.predict(data)
     if prediction[0] == 0:
         st.error("High Health Risk")
     else:
         st.success("Low Health Risk")
+        st.balloons()
