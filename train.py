@@ -8,6 +8,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 import joblib
 
+
 #Load dataset
 df = pd.read_csv("dataset/heart.csv")
 print(df.head())

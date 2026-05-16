@@ -1,7 +1,22 @@
 import streamlit as st
 import joblib
 import numpy as np
+import base64
 
+
+def set_bg():
+    with open("bg.jpg", "rb") as file:
+        encoded = base64.b64encode(file.read()).decode()
+    page_bg = f"""
+    <style>
+    .stApp {{
+        background-image: url("data:image/jpg;base64,{encoded}");
+        background-size:cover;
+    }}
+    </style>
+    """
+    st.markdown(page_bg, unsafe_allow_html = True)
+set_bg()
 model = joblib.load("models/health_model.pkl")
 scaler = joblib.load("models/scaler.pkl")
 st.title("AI Health Risk Prediction")
