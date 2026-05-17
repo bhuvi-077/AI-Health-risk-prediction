@@ -23,7 +23,7 @@ def set_bg():
     </style>
     """
     st.markdown(page_bg, unsafe_allow_html = True)
-#set_bg()
+set_bg()
 
 
 model = joblib.load("models/health_model.pkl")
@@ -45,7 +45,7 @@ h1,h2,h3{
     height: 3.2em;
     border-radius:12px;
     border:none;
-    background-color: #ff4b4b;
+    background-color: #b74646;
     color:white;
     font-size:20px;
     font-weight:bold;
@@ -154,8 +154,7 @@ with tab1:
             with col2:
                 st.image("good health.jpg", width = 400)
             st.balloons()
-        st.subheader("cholestrol Analysis")
-        st.bar_chart(df["chol"])
+        
 with tab2:
     st.header("Dataset Analytics")
     with st.expander("See Patient Details"):
@@ -166,6 +165,8 @@ with tab2:
         st.write(f"Heart Rate: {thalach}")
 
     st.line_chart(df["chol"])
+    st.subheader("cholestrol Analysis")
+    st.bar_chart(df["chol"])
 
     with st.expander("Dataset Info"):
 
