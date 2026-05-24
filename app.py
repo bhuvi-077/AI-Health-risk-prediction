@@ -92,7 +92,7 @@ tab1, tab2 = st.tabs(["Prediction", "Analytics"])
 with tab1:
     col1,col2,col3 = st.columns(3)
     with col1:
-        age = st.number_input("Age")
+        age1 = st.number_input("Age")
         sex = st.selectbox("Sex", [0,1])
         cp = st.number_input("Chest Pain Type")
 
