@@ -13,8 +13,15 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+      - name: Login to  Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build Docker Image
-        run: docker build -t ai-health-risk-prediction .
+      - name: Build and push Image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: bhuvi07/AI-Health-risk-prediction:latest
