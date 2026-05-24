@@ -24,4 +24,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: bhuvi07/AI-Health-risk-prediction:latest
+          tags: bhuvi07/ai-health-risk-prediction:latest
